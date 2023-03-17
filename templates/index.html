@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+  <title>PickUPpGPT</title>
+  <link
+    rel="shortcut icon"
+    href="{{ url_for('static', filename='fire.png') }}"
+  />
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+
+<body>
+  <img src="{{ url_for('static', filename='fire.png') }}" class="icon" />
+  <h3>PickUp-GPT</h3>
+  <h2>A.I Powered ChatUp Lines</h2>
+  <form action="/" method="post">
+    <input type="text" name="name" placeholder="Enter The Name" required />
+    <input type="text" name="bio" placeholder="Enter The Bio" style="height: 200px;" required />
+
+    <label class="radio-label">
+      <input class="radio-input" type="radio" name="line_type" value="name" required /> Based On Name
+    </label>
+
+    <label class="radio-label">
+      <input class="radio-input" type="radio" name="line_type" value="bio" required /> Based On Bio
+    </label>
+
+
+
+    <input type="submit" value="Generate Pickup Line!" />
+
+  </form>
+  {% if result %}
+  <div class="result">{{ result }}</div>
+  {% endif %}
+</body>
